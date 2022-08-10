@@ -1,0 +1,18 @@
+# The environment
+universe              = vanilla
+getenv                = True
+request_cpus          = 1
+request_memory        = 5G
+
+# Execution
+initialdir            = /data/project/parcellate_ABCD_preprocessed/scripts/Parcellate_ABCD_DCANpreproc
+executable            = /usr/bin/matlab95
+transfer_executable   = False
+
+# Job
+arguments   = -singleCompThread -r extract_rest_timeseries_Tian(2,'/data/project/parcellate_ABCD_preprocessed/scripts/lists/subjects_rs.txt')
+log         = /data/project/parcellate_ABCD_preprocessed/scripts/logs/extract_rest_ts_Tian_$(Cluster).$(Process).log
+output      = /data/project/parcellate_ABCD_preprocessed/scripts/logs/extract_rest_ts_Tian_$(Cluster).$(Process).out
+error       = /data/project/parcellate_ABCD_preprocessed/scripts/logs/extract_rest_ts_Tian_$(Cluster).$(Process).err
+requirements = Machine == "cpu10.htc.inm7.de"
+Queue
